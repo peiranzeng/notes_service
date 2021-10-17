@@ -23,5 +23,6 @@ public class Note{
     @Column(name = "LastUpdateTime", nullable = false)
     private Date lastUpdateTime;
     @ManyToOne
+    @JoinColumn(name = "User_id")
     private User user;
 }
