@@ -62,6 +62,7 @@ public class UserServiceImpl implements UserService {
                 noteRepository.save(n);
             }
         }
+        save(user);
     }
 
     @Override
@@ -74,6 +75,18 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<Note> findAllUserNote(User user) {
         return user.getNoteList();
+    }
+
+    @Override
+    public void deleteUserNote(Note note, User user) {
+        List<Note> noteList = user.getNoteList();
+        for(Note n : noteList) {
+            if(n.getId() == note.getId()){
+                noteList.remove(n);
+                noteRepository.delete(n);
+            }
+        }
+        save(user);
     }
 
 

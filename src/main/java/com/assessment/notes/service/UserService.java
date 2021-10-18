@@ -20,4 +20,6 @@ public interface UserService {
     void addUserNote(Note note, User user);
 
     List<Note> findAllUserNote(User user);
+
+    void deleteUserNote(Note note, User user);
 }

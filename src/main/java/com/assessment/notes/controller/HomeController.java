@@ -53,7 +53,7 @@ public class HomeController {
         return "userNotes";
     }
 
-    @RequestMapping("/createNotes", method = RequestMethod.POST)
+    @RequestMapping(value = "/createNotes", method = RequestMethod.POST)
     public String createNotes(Model model, @ModelAttribute("newNote")String newNote, @ModelAttribute("newNote")String title, Principal principal) {
         User user = userService.findByEmail(principal.getName());
         Note note = new Note();
@@ -66,6 +66,16 @@ public class HomeController {
         List<Note> noteList = user.getNoteList();
         model.addAttribute(noteList);
 
+        return "userNotes";
+    }
+
+    @RequestMapping("/deleteNotes")
+    public String deleteNotes(@ModelAttribute("id") Long noteId, Model model, Principal principal) {
+        User user = userService.findByEmail(principal.getName());
+        Note note = userNoteService.findById(noteId);
+        userService.deleteUserNote(note, user);
+        List<Note> noteList = user.getNoteList();
+        model.addAttribute(noteList);
         return "userNotes";
     }
 
