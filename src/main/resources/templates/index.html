@@ -7,8 +7,6 @@
 </head>
 <body>
     <div>
-        <ul>
-            <li><a sec:authorize="isAnonymous()" th:href="@{/login}">MY Notes</a></li>
-        </ul>
+        <a sec:authorize="isAnonymous()" th:href="@{/login}">Login</a>
     </div>
 </body>
