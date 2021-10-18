@@ -4,7 +4,9 @@ import com.assessment.notes.domain.Note;
 import com.assessment.notes.repository.NoteRepository;
 import com.assessment.notes.service.UserNoteService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UserNoteServiceImpl implements UserNoteService {
 
     @Autowired
